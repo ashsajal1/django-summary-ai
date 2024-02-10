@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Text Summarization</h1>
-    <form method="POST" action="/summary">
+    <form method="post" action="{% url 'summary' %}">
         {% csrf_token %}
         <label for="text">Enter Text:</label><br>
         <textarea id="text" name="text" rows="10" cols="50"></textarea><br><br>

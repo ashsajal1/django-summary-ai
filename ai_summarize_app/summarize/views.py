@@ -1,14 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Use a pipeline as a high-level helper
 from transformers import pipeline
 
 pipe = pipeline("summarization", model="Falconsai/text_summarization")
 
-# Create your views here.
 def summarize(request):
-  summarized_text = pipe("This si a sample text")[0]['summary_text']
-  return HttpResponse(summarized_text)
-
-
+    print(request)
+    if request.method == 'POST':
+        input_text = request.POST['text']
+        summarized_text = pipe(input_text)[0]['summary_text']
+        return render(request, "summary.html", {"summarized_text":summarized_text})
+    elif request.method == "GET":
+        return render(request, 'summary_form.html')
+    else:
+      return HttpResponse("Method is not allowed!")
+      
     
