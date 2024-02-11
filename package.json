@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx tailwindcss -i ./ai_summarize_app/static/css/style.css -o ./ai_summarize_app/static/css/global.css --watch"
   },
   "keywords": [],
   "author": "",
