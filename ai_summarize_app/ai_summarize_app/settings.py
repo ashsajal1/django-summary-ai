@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
+# vercel_app/settings.py
+WSGI_APPLICATION = 'ai_summarize_app.wsgi.app'
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
