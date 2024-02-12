@@ -1,21 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>{% block title %}My Website{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+  </head>
+  <body>
     <!-- Navbar -->
     {% include 'navbar.html' %}
-
+    <button class='btn' onclick="toggleTheme()">Toggle Theme</button>
     <!-- Main content -->
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
+    <div class="dark:bg-black">{% block content %} {% endblock %}</div>
 
     <!-- Footer -->
     {% include 'footer.html' %}
-</body>
+    <script src="{% static 'js/toggle-theme.js' %}"></script>
+  </body>
 </html>
